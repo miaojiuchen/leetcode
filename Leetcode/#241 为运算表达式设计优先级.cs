@@ -18,37 +18,29 @@ namespace Leetcode
                     var res1 = DiffWaysToCompute(input.Substring(0, i));
                     var res2 = DiffWaysToCompute(input.Substring(i + 1));
 
-                    foreach(var l in res1)
+                    foreach (var l in res1)
                     {
-                        foreach(var r in res2)
+                        foreach (var r in res2)
                         {
-                            switch(input[i])
+                            switch (input[i])
                             {
                                 case '+':
-                                    {
-                                        res.Add(l + r);
-                                        break;
-                                    }
+                                    res.Add(l + r);
+                                    break;
                                 case '-':
-                                    {
-                                        res.Add(l - r);
-                                        break;
-                                    }
+                                    res.Add(l - r);
+                                    break;
                                 case '*':
-                                    {
-                                        res.Add(l * r);
-                                        break;
-                                    }
+                                    res.Add(l * r);
+                                    break;
                             }
                         }
                     }
                 }
             }
 
-            if(res.Count == 0)
-            {
+            if (res.Count == 0)
                 res.Add(int.Parse(input));
-            }
 
             return res;
         }
