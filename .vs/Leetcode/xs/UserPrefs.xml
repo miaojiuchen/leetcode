@@ -1,32 +1,21 @@
 ﻿<Properties StartupConfiguration="{31C56760-16E9-479D-B1C6-EF2A952FF7D9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Leetcode.Test/62 不同路径.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Leetcode/#3 无重复字符的最长字串.cs">
     <Files>
-      <File FileName="Leetcode/64 最小路径和.cs" Line="31" Column="81" />
-      <File FileName="Leetcode/62 不同路径.cs" Line="12" Column="18" />
-      <File FileName="Leetcode.Test/62 不同路径.cs" Line="24" Column="31" />
+      <File FileName="Leetcode/#3 无重复字符的最长字串.cs" Line="8" Column="22" />
+      <File FileName="Leetcode.Test/#3 无重复字符的最长字串.cs" Line="34" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Leetcode" expanded="True">
             <Node name="Leetcode" expanded="True" />
-            <Node name="Leetcode.Test" expanded="True">
-              <Node name="62 不同路径.cs" selected="True" />
-            </Node>
+            <Node name="Leetcode.Test" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="Leetcode" expanded="True">
-            <Node name="Leetcode.Test" expanded="True">
-              <Node name="Leetcode" expanded="True">
-                <Node name="Test" expanded="True">
-                  <Node name="Test_62_不同路径" expanded="True" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="Leetcode" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
