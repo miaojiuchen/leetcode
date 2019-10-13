@@ -1,8 +1,6 @@
 ﻿using System;
 namespace Leetcode
 {
-
-
     public class AddTwoNumbersLinkedList
     {
         public class ListNode
@@ -14,7 +12,6 @@ namespace Leetcode
 
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-
             ListNode result = null;
             var pr = result;
 

@@ -24,6 +24,35 @@ namespace Leetcode.Test
         }
 
         [Test]
+        public void Test5()
+        {
+            var x = C.LengthOfLongestSubstring("tmmzuxt");
+            if (x == 5)
+                Assert.Pass();
+            else
+                Assert.Fail();
+        }
+
+        [Test]
+        public void Test4()
+        {
+            var x = C.LengthOfLongestSubstring(" ");
+            if (x == 1)
+                Assert.Pass();
+            else
+                Assert.Fail();
+        }
+        [Test]
+        public void Test3()
+        {
+            var x = C.LengthOfLongestSubstring("acbdcbfd");
+            if (x == 4)
+                Assert.Pass();
+            else
+                Assert.Fail();
+        }
+
+        [Test]
         public void Test1()
         {
             var x = C.LengthOfLongestSubstring("bbbbb");

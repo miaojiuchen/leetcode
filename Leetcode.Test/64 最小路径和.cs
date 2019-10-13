@@ -38,7 +38,7 @@ namespace Leetcode.Test
                 new int[]{ 3,2,1}
             };
             var x = C.MinPathSum(arr);
-            if (x == 7)
+            if (x == 6)
                 Assert.Pass();
             else
                 Assert.Fail();
