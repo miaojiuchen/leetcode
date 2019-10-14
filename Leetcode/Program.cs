@@ -15,26 +15,6 @@ namespace Leetcode
             //Sum3();
 
             //AddTwoNumbers();
-            _241_为运算表达式设计优先级();
-        }
-
-
-        static void _241_为运算表达式设计优先级()
-        {
-            var C = new _241_为运算表达式设计优先级();
-            var x = C.DiffWaysToCompute("2*3-4*5");
-            foreach (var xx in x)
-            {
-                Console.Write(xx + ",");
-            }
-            Console.WriteLine();
-
-            x = C.DiffWaysToCompute("2*3-4*5+6");
-            foreach (var xx in x)
-            {
-                Console.Write(xx + ",");
-            }
-            Console.WriteLine();
         }
 
         static void MaxiumSubarray()

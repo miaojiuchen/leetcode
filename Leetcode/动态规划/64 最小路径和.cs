@@ -4,7 +4,7 @@ namespace Leetcode
     public class _64_最小路径和
     {
         /// <summary>
-        /// DP问题，一般来说，dp[i, j] = min(dp[i-1, j], dp[i, j-1])+val
+        /// DP问题，一般来说，dp[i, j] = min(dp[i-1, j], dp[i, j-1]) + val
         /// 对于边缘的点，特殊处理，一定使用左侧或上侧的路径
         /// </summary>
         /// <param name="grid"></param>
