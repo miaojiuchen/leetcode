@@ -8,7 +8,4 @@
   <ItemGroup>
     <None Remove="1177. 构建回文串检测" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="回溯算法\" />
-  </ItemGroup>
 </Project>
