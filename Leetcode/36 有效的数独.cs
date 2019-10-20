@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Leetcode
 {
-    public class _43_有效的数独
+    public class _36_有效的数独
     {
         public bool IsValidSudoku(char[][] board)
         {
