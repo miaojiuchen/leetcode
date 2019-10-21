@@ -20,6 +20,14 @@ namespace Leetcode
                 num1 = num2;
                 num2 = tmp;
             }
+            var zeroCount = num1.Length + num2.Length;
+            num1 = num1.TrimEnd('0');
+            num2 = num2.TrimEnd('0');
+            zeroCount -= num1.Length + num2.Length;
+            if (zeroCount > 0)
+            {
+                return Multiply(num1, num2) + repeat("0", zeroCount);
+            }
 
             var factors = new string[num2.Length];
             var last = 0;
@@ -47,7 +55,7 @@ namespace Leetcode
 
                 var appendZero = num2.Length - 1 - i;
 
-                factors[num2.Length - 1 - i] = tmp.ToString() + repeat("0", appendZero);
+                factors[num2.Length - 1 - i] = tmp + repeat("0", appendZero);
 
                 last = factors[num2.Length - 1 - i].Length;
             }
@@ -83,11 +91,6 @@ namespace Leetcode
                 ans.Insert(0, (char)('0' + carry));
             }
             return ans.ToString();
-        }
-
-        private int pow(int a, int b)
-        {
-            return Convert.ToInt32(Math.Pow(Convert.ToDouble(a), Convert.ToDouble(b)));
         }
 
         private string repeat(string c, int count)

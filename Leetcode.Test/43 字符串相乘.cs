@@ -52,7 +52,7 @@ namespace Leetcode.Test
         {
             var x = C.Multiply("140", "712");
 
-            if (x == "100940")
+            if (x == "99680")
                 Assert.Pass();
             else
                 Assert.Fail();
