@@ -32,6 +32,7 @@ namespace Leetcode
                 if (used[i])
                     continue;
 
+                // 剪枝
                 if (unique.Contains(nums[i]))
                 {
                     continue;
