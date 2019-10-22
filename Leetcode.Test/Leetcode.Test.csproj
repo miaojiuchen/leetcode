@@ -15,4 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Leetcode\Leetcode.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tree\" />
+  </ItemGroup>
 </Project>
