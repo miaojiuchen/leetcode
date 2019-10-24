@@ -14,6 +14,40 @@ namespace Leetcode
                 return 0;
             }
 
+            var left_max = new int[height.Length];
+            left_max[1] = height[0];
+            for (var i = 2; i < height.Length; i++)
+            {
+                left_max[i] = Math.Max(left_max[i - 1], height[i - 1]);
+            }
+
+            var right_max = new int[height.Length];
+            right_max[height.Length - 2] = height[height.Length - 1];
+            for (var i = height.Length - 3; i >= 0; --i)
+            {
+                right_max[i] = Math.Max(right_max[i + 1], height[i + 1]);
+            }
+
+            var sum = 0;
+            for (var i = 1; i <= height.Length - 2; i++)
+            {
+                var count = Math.Min(left_max[i], right_max[i]) - height[i];
+                if (count > 0)
+                {
+                    sum += count;
+                }
+            }
+
+            return sum;
+        }
+
+        public int Trap2(int[] height)
+        {
+            if (height.Length < 2)
+            {
+                return 0;
+            }
+
             var changes = new int[height.Length - 1];
             for (var i = 0; i <= height.Length - 2; ++i)
             {
