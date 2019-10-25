@@ -8,7 +8,7 @@ namespace Leetcode
     {
         public int TrapRainWater(int[][] heightMap)
         {
-
+            return 0;
         }
     }
 }
