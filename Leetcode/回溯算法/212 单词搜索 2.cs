@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -14,33 +15,67 @@ namespace Leetcode.回溯算法
 
         private bool[][] check;
         private Trie trie;
+        private List<string> ans;
 
         public IList<string> FindWords(char[][] board, string[] words)
         {
-            var trie = new Trie(words);
+            ans = new List<string>();
+
+            if (words.Length == 0)
+            {
+                return ans;
+            }
+
+            _board = board;
+            _height = board.Length;
+            _width = board[0].Length;
+
+            trie = new Trie(words);
 
             check = new bool[_height][];
-            for (var i = 0; i < _width; ++i)
+            for (var i = 0; i < _height; ++i)
             {
                 check[i] = new bool[_width];
             }
 
             for (var i = 0; i < _height; ++i)
             {
-                for (var j = 0; i < _width; ++j)
+                for (var j = 0; j < _width; ++j)
                 {
-                    exists(0, 0);
+                    exists(i, j, trie);
                 }
             }
+
+            return ans.Distinct().ToList();
         }
 
-        private bool exists(int i, int j)
+        private void exists(int i, int j, Trie cur)
         {
+            if(!inBoard(i, j) || check[i][j])
+            {
+                return;
+            }
+            var c = _board[i][j];
+            if (!cur.children.ContainsKey(c))
+            {
+                return;
+            }
+
             check[i][j] = true;
 
+            var node = cur.children[c];
+
+            if (node.isWord)
+            {
+                ans.Add(node.val);
+            }
+
+            exists(i + 1, j, node);
+            exists(i - 1, j, node);
+            exists(i, j + 1, node);
+            exists(i, j - 1, node);
 
             check[i][j] = false;
-            return false;
         }
 
         private bool inBoard(int i, int j)
@@ -50,24 +85,27 @@ namespace Leetcode.回溯算法
 
         public class Trie
         {
-            public struct Node
-            {
-                internal char c;
-                internal Dictionary<char, Node> children;
-                internal bool isWord;
-            }
+            public Dictionary<char, Trie> children;
+            public bool isWord;
+            public char c;
+            public string val;
 
-            private Dictionary<char, Node> children;
-            private bool isWord;
+            public Trie(char _c, bool _isWord)
+            {
+                children = new Dictionary<char, Trie>();
+                c = _c;
+                isWord = _isWord;
+            }
 
             public Trie(string[] words)
             {
-                children = new Dictionary<char, Node>();
+                children = new Dictionary<char, Trie>();
                 foreach (var w in words)
                 {
                     if (w == "")
                     {
                         isWord = true;
+                        val = w;
                     }
                     else
                     {
@@ -78,45 +116,21 @@ namespace Leetcode.回溯算法
 
             public void Insert(string s)
             {
-                var cur = children;
+                var cur = this;
                 var i = 0;
                 while (i != s.Length)
                 {
-                    if (cur.ContainsKey(s[i]))
+                    if (!cur.children.ContainsKey(s[i]))
                     {
-                        cur = cur[s[i]].children;
+                        cur.children.Add(s[i], new Trie(s[i], false));
                     }
-                    else
-                    {
-                        cur.Add(s[i], new Node
-                        {
-                            c = s[i],
-                            children = new Dictionary<char, Node>(),
-                            isWord = i == s.Length - 1
-                        });
-                    }
+
+                    cur = cur.children[s[i]];
                     ++i;
                 }
-            }
 
-            public bool ExistsPrefix(string s)
-            {
-                var cur = children;
-                var i = 0;
-                while (i != s.Length)
-                {
-                    if (cur.ContainsKey(s[i]))
-                    {
-                        cur = cur[s[i]].children;
-                        i++;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-
-                return true;
+                cur.isWord = true;
+                cur.val = s;
             }
         }
     }
