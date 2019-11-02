@@ -55,7 +55,6 @@ namespace Leetcode
                 rCrossCheck[rCrossIndex(row, col)] = false;
                 lCrossCheck[lCrossIndex(row, col)] = false;
             }
-            return;
         }
 
         private bool checkAttack(int row, int col)
